@@ -163,6 +163,7 @@ forma:
 for i in range(1, 31, 1):
     print(f'{i}' * i)
 
+
 ---
 
 14) Haz un programa que escriba una pirámide inversa de los números del 1 al
@@ -196,19 +197,20 @@ ejemplo:
 8 (Múltiplo de 4)
 9 (Múltiplo de 9)
 
-
+"""
 for i in range(1, 501, 1):
     if i % 4 == 0:
         print(f'{i} es divisible por 4')
     elif i % 9 == 0:
         print(f'{i} es divisible por 9')
-    elif i % 5 == 0:
-        print(f'{i} \n -----------------')
     else:
-        print(i) 
+        print(i)
+    if i % 5 == 0:
+        print(f'\n -----------------')
+     
 
         
-10 """
+
 
 
 
