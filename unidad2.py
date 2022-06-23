@@ -85,13 +85,11 @@ def mayor_estricto(n1, n2, n3):
 num1=int(input('Escriba un número: '))
 num2=int(input('Escriba un número: '))
 num3=int(input('Escriba un número: '))
-
+print(mayor_numero(num1, num2, num3))
 print(mayor_estricto(num1, num2, num3))
 
-'''
+---
 
- 
-'''
 3) Un comercio de electrodomésticos necesita para su línea de cajas un programa
 que le indique al cajero el cambio que debe entregarle al cliente. Para eso se
 ingresan dos números enteros, correspondientes al total de la compra y al
@@ -101,6 +99,28 @@ billetes. Considerar que existen billetes de $500, $100, $50, $20, $10, $5 y $1.
 Emitir un mensaje de error si el dinero recibido fuera insuficiente. Ejemplo: si la
 compra es de $317 y se abona con $500, el vuelto debe contener 1 billete de
 $100, 1 billete de $50, 1 billete de $20, 1 billete de $10 y 3 billetes de $1.
+
+183
+
+'''
+valor_producto = int(input('Valor del producto: '))
+dinero_entregado = int(input('Dinero entregado por el cliente: '))
+billetes = [500, 100, 50, 20, 10, 5, 1]
+vuelto = dinero_entregado - valor_producto
+cambio = []
+
+if valor_producto > dinero_entregado:
+    print('No es dinero suficiente')
+else:
+    for i in range(0, len(billetes), 1):
+        cambio.append(vuelto // billetes[i])
+        vuelto = vuelto % billetes[i]
+        print(f'Se debe devolver {cambio[i]} billetes de {billetes[i]}')
+
+print(f'Se debe devolver {cambio[0]} billetes de {billetes[0]}, {cambio[1]} billetes de {billetes[1]}, {cambio[2]} billetes de {billetes[2]}, {cambio[3]} billetes de {billetes[3]}, {cambio[4]} billetes de {billetes[4]}, {cambio[5]} billetes de {billetes[5]} y {cambio[6]} billetes de {billetes[6]}')
+
+'''
+
 
 4) Escribir dos funciones separadas para imprimir por pantalla los siguientes
 patrones de asteriscos, donde la cantidad de filas se recibe como parámetro:
