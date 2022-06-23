@@ -1,17 +1,21 @@
-""" Actividad Práctica - Python Unidad 2
+''' Actividad Práctica - Python Unidad 2
 
 1) Desarrollar una función que reciba tres números enteros positivos y verifique si
 corresponden a una fecha válida (día, mes, año). Devolver True o False según
 la fecha sea correcta o no. Realizar también un programa para verificar el
 comportamiento de la función.
-"""
 
-# Version basica
-""" def validar_fecha(d, m, a):
-    return d > 0 and d <= 31 and m >= 1 and m <=12 and a >= 1 and a <= 2022 """
 
-# Version no bisiesto
-""" def validar_fecha(d,m,a):
+# Versión basica
+
+def validar_fecha(d, m, a):
+    return d > 0 and d <= 31 and m >= 1 and m <=12 and a >= 1 and a <= 2022
+
+
+# Versión para años no bisiestos
+
+def validar_fecha(d,m,a):
+"""Validación de fechas, sin tener en cuenta los bisiestos"""
     if (m == 1 or m == 3 or m == 5 or m==7 or m==8 or m==10 or m==12) and (d >= 1 and d <= 31) and (a>=1 and a <= 2022):
         return True
     elif (m == 4 or m == 6 or m==9 or m==11) and (d >= 1 and d <= 30) and (a>=1 and a <= 2022):
@@ -19,10 +23,13 @@ comportamiento de la función.
     elif m == 2 and d >= 1 and d <= 29 and a>=1 and a <= 2022:
         return True
     else:
-        return False """
+        return False
 
-# Version bisiesto
+
+# Versión con años bisiestos
+
 def validar_fecha(d,m,a):
+    """Validación de fechas teniendo en cuenta si el año es o no bisiesto"""
     if (m == 1 or m == 3 or m == 5 or m==7 or m==8 or m==10 or m==12) and (d >= 1 and d <= 31) and (a>=1 and a <= 2022):
         return True
     elif (m == 4 or m == 6 or m==9 or m==11) and (d >= 1 and d <= 30) and (a>=1 and a <= 2022):
@@ -34,19 +41,57 @@ def validar_fecha(d,m,a):
     else:
         return False
 
+
+# Variables y print de la función
+
 dia=int(input('Escriba un dia: '))
 mes=int(input('Escriba un mes: '))
 anio=int(input('Escriba un anio: '))
 print(validar_fecha(dia, mes, anio))
 
-"""
+---
+
 2) Desarrollar una función que reciba tres números positivos y devuelva el mayor
-de los tres.Desarrollar también un programa para ingresar los tres valores, invocar a la función y mostrar el máximo hallado, o un mensaje informativo si éste no existe.
+de los tres. Desarrollar también un programa para ingresar los tres valores, invocar a la función y mostrar el máximo hallado, o un mensaje informativo si éste no existe.
 2.1)  Desarrollar  ej1, sólo si éste es único (mayor estricto). En caso de no existir el mayor
 estricto devolver -1. 
-2.2)  Resolver el ej 1  sin utilizar operadores lógicos (and, or, not). 
- 
+2.2)  Resolver el ej 1  sin utilizar operadores lógicos (and, or, not).
 
+
+# Parte 1: comparación de 3 números diferentes
+def mayor_numero(n1, n2, n3):
+    """ Determina y devuelve el número que sea mayor """
+    max = 0
+    if n1 > n2 and n1 > n2:
+        max = n1
+    elif n2 > n3:
+        max = n2
+    else:
+        max = n3
+    return max
+
+# Parte 2 y 3: comparación de 3 números, con o sin mayor estricto, sin operadores lógicos
+def mayor_estricto(n1, n2, n3):
+    """ Determina y devuelve el número que sea mayor """
+    max = 0
+    lista = [n1, n2, n3]
+    lista.sort(reverse=True)
+    if(lista[0] == lista[1]):
+        max = 'No hay mayor estricto'
+    else:
+        max = lista[0]
+    return max
+
+num1=int(input('Escriba un número: '))
+num2=int(input('Escriba un número: '))
+num3=int(input('Escriba un número: '))
+
+print(mayor_estricto(num1, num2, num3))
+
+'''
+
+ 
+'''
 3) Un comercio de electrodomésticos necesita para su línea de cajas un programa
 que le indique al cajero el cambio que debe entregarle al cliente. Para eso se
 ingresan dos números enteros, correspondientes al total de la compra y al
@@ -115,4 +160,4 @@ caracteres, a partir de una posición y cantidad de caracteres dados,
 devolviendo la cadena resultante. Escribir también un programa para verificar
 el comportamiento de la misma. Escribir una función utilizando rebanadas.
 
-"""
+'''
