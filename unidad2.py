@@ -100,9 +100,7 @@ Emitir un mensaje de error si el dinero recibido fuera insuficiente. Ejemplo: si
 compra es de $317 y se abona con $500, el vuelto debe contener 1 billete de
 $100, 1 billete de $50, 1 billete de $20, 1 billete de $10 y 3 billetes de $1.
 
-183
 
-'''
 valor_producto = int(input('Valor del producto: '))
 dinero_entregado = int(input('Dinero entregado por el cliente: '))
 billetes = [500, 100, 50, 20, 10, 5, 1]
@@ -117,10 +115,7 @@ else:
         vuelto = vuelto % billetes[i]
         print(f'Se debe devolver {cambio[i]} billetes de {billetes[i]}')
 
-print(f'Se debe devolver {cambio[0]} billetes de {billetes[0]}, {cambio[1]} billetes de {billetes[1]}, {cambio[2]} billetes de {billetes[2]}, {cambio[3]} billetes de {billetes[3]}, {cambio[4]} billetes de {billetes[4]}, {cambio[5]} billetes de {billetes[5]} y {cambio[6]} billetes de {billetes[6]}')
-
-'''
-
+---
 
 4) Escribir dos funciones separadas para imprimir por pantalla los siguientes
 patrones de asteriscos, donde la cantidad de filas se recibe como parámetro:
@@ -130,7 +125,18 @@ patrones de asteriscos, donde la cantidad de filas se recibe como parámetro:
 *****               ****            *******   
 *****               *****          *********
 
+'''
 
+def patron(n):
+    for i in range(1, n+1, 1):
+        print(("*"* 5).ljust(10, " "), ("*" * i).ljust(10, " "), ("*" * (i*2-1)).center(10, " "))
+
+
+patron(5)
+
+
+
+"""
 5) Crear una función lambda que devuelva el cuadrado de un valor recibido cómo
 parámetro. Desarrollar además un programa para verificar el comportamiento
 de la función.
@@ -180,4 +186,4 @@ caracteres, a partir de una posición y cantidad de caracteres dados,
 devolviendo la cadena resultante. Escribir también un programa para verificar
 el comportamiento de la misma. Escribir una función utilizando rebanadas.
 
-'''
+"""
