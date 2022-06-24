@@ -125,29 +125,55 @@ patrones de asteriscos, donde la cantidad de filas se recibe como parámetro:
 *****               ****            *******   
 *****               *****          *********
 
-'''
-
 def patron(n):
     for i in range(1, n+1, 1):
         print(("*"* 5).ljust(10, " "), ("*" * i).ljust(10, " "), ("*" * (i*2-1)).center(10, " "))
 
-
 patron(5)
 
+---
 
-
-"""
 5) Crear una función lambda que devuelva el cuadrado de un valor recibido cómo
 parámetro. Desarrollar además un programa para verificar el comportamiento
 de la función.
+
+cuadrado = lambda x: x**2
+print(cuadrado(10))
+
+---
 
 6) Crear una función lambda para comprobar si un número es par o impar.
 Desarrollar además un programa para verificar el comportamiento de la
 función.
 
+numero_par = lambda x: x % 2 == 0 
+print(numero_par(4))
+
+---
+
 7) Crear una lista con los cuadrados de los números entre 1 y N (ambos
 incluidos), donde N se ingresa desde el teclado. Luego se solicita imprimir los
 últimos 10 valores de la lista.
+
+'''
+cuadrados = []
+
+def lista_cuadrados(n):
+    if n > 0:
+        for i in range(1, n+1, 1):
+            cuadrados.append(i**2)
+        return f'Los cuadrados son: {cuadrados} y los últimos 10 cuadrados de la lista son: {cuadrados[-10:]}'
+    else:
+        return 'No es un número entero positivo'
+
+
+n = int(input('Escribe un número entero positivo: '))
+print(lista_cuadrados(n))
+
+"""
+
+
+
 
 8) Eliminar de una lista de palabras que se encuentren en una segunda lista.
 Imprimir la lista original, la lista de palabras a eliminar y la lista resultante.
