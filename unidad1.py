@@ -197,7 +197,7 @@ ejemplo:
 8 (Múltiplo de 4)
 9 (Múltiplo de 9)
 
-"""
+
 for i in range(1, 501, 1):
     if i % 4 == 0:
         print(f'{i} es divisible por 4')
@@ -209,7 +209,7 @@ for i in range(1, 501, 1):
         print(f'\n -----------------')
      
 
-        
+"""
 
 
 

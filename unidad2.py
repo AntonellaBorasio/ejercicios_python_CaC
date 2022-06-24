@@ -100,8 +100,7 @@ Emitir un mensaje de error si el dinero recibido fuera insuficiente. Ejemplo: si
 compra es de $317 y se abona con $500, el vuelto debe contener 1 billete de
 $100, 1 billete de $50, 1 billete de $20, 1 billete de $10 y 3 billetes de $1.
 
-
-valor_producto = int(input('Valor del producto: '))
+¿valor_producto = int(input('Valor del producto: '))
 dinero_entregado = int(input('Dinero entregado por el cliente: '))
 billetes = [500, 100, 50, 20, 10, 5, 1]
 vuelto = dinero_entregado - valor_producto
@@ -155,7 +154,6 @@ print(numero_par(4))
 incluidos), donde N se ingresa desde el teclado. Luego se solicita imprimir los
 últimos 10 valores de la lista.
 
-'''
 cuadrados = []
 
 def lista_cuadrados(n):
@@ -170,13 +168,21 @@ def lista_cuadrados(n):
 n = int(input('Escribe un número entero positivo: '))
 print(lista_cuadrados(n))
 
-"""
-
-
-
+---
 
 8) Eliminar de una lista de palabras que se encuentren en una segunda lista.
 Imprimir la lista original, la lista de palabras a eliminar y la lista resultante.
+
+def lista_resultado(lista_original, lista_eliminada):
+    resultante = lista_original[:]
+    for i in range (0, len(lista_eliminada), 1):
+        while lista_eliminada[i] in resultante:
+           resultante.remove(lista_eliminada[i])
+    return f'La diferencia entre {lista_original} y {lista_eliminada} es {resultante}'
+
+print(lista_resultado([1, 2, 3, 4, 5], [2, 3]))
+
+---
 
 9) Escribir una función que reciba una lista como parámetro y devuelva True si la
 lista está ordenada en forma ascendente o False en caso contrario. Por
@@ -184,10 +190,35 @@ ejemplo, ordenada([1, 2, 3]) retorna True y ordenada(['b', 'a']) retorna False.
 Desarrollar además un programa para verificar el comportamiento de la
 función.
 
+def lista_ordenada(lista):
+    copia_lista = lista[:]
+    copia_lista.sort()
+    return lista == copia_lista
+
+lista1 = list(input('Determine los elementos de la lista: '))
+print(lista_ordenada(lista1))
+
+---
+
 10) Desarrollar una función que determine si una cadena de caracteres es capicúa,
 sin utilizar cadenas auxiliares ni rebanadas. Escribir además un programa que
 permita verificar su funcionamiento.
 
+
+'''
+cadena1 = "olilo"
+print(int(len(cadena1)/2))
+
+def es_palindromo(cad):
+    for i in range(0, int(len(cad)/2)):
+        if cad[i] != cad[len(cad)-i-1]:
+            return ('No es palíndromo')
+    return ('Es palíndromo')
+
+cadena = input('Escribe una palabra o frase: ')
+print(es_palindromo(cadena))
+
+"""
 11) Leer una cadena de caracteres e imprimirla centrada en pantalla. Suponer que
 la misma tiene 80 columnas.
 
