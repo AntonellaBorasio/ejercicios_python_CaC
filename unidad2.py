@@ -204,23 +204,24 @@ print(lista_ordenada(lista1))
 sin utilizar cadenas auxiliares ni rebanadas. Escribir además un programa que
 permita verificar su funcionamiento.
 
-
-'''
-cadena1 = "olilo"
-print(int(len(cadena1)/2))
-
 def es_palindromo(cad):
     for i in range(0, int(len(cad)/2)):
         if cad[i] != cad[len(cad)-i-1]:
-            return ('No es palíndromo')
-    return ('Es palíndromo')
+            return ('No es palíndromo.')
+    return ('Es palíndromo.')
 
 cadena = input('Escribe una palabra o frase: ')
 print(es_palindromo(cadena))
 
-"""
+---
+
 11) Leer una cadena de caracteres e imprimirla centrada en pantalla. Suponer que
 la misma tiene 80 columnas.
+
+cad = input('Escribir una cadena: ')
+print(cad.center(80," "))
+
+---
 
 12) Escribir una función que reciba como parámetro una tupla conteniendo una
 fecha (día,mes,año) y devuelva una cadena de caracteres con la misma fecha
@@ -228,9 +229,33 @@ expresada en formato extendido. Por ejemplo, para (12, 10,17) devuelve “12 de
 Octubre de 2017”. Escribir también un programa para verificar su
 comportamiento.
 
+def fecha_ext(fecha):
+    return f'{fecha[0]} de {fecha[1]} de {fecha[2]}'
+
+dia = int(input('Ingrese un dia: '))
+mes = input('Ingrese un mes: ')
+anio = int(input('Ingrese un anio: '))
+fecha = (dia,mes,anio)
+print(fecha_ext(fecha))
+
+---
+
 13) Ingresar una frase desde el teclado y usar un conjunto para eliminar las
 palabras repetidas, dejando un solo ejemplar de cada una. Finalmente mostrar
 las palabras ordenadas según su longitud.
+
+def comparar_frase(frase):
+    conjunto1 = set(frase)
+    conjunto2 = set(frase)
+    dif = list(conjunto1 & conjunto2)    
+    dif.sort(key=len)
+    return dif
+    
+cad = (input('Ingrese una frase: ').split(' '))
+print(comparar_frase(cad))
+comparar_frase(cad)
+
+---
 
 14) Desarrollar una función eliminar_claves() que reciba como parámetros un
 diccionario y una lista de claves. La función debe eliminar del diccionario todas
@@ -238,6 +263,18 @@ las claves contenidas en la lista, devolviendo el diccionario modificado y un
 valor de verdad que indique si la operación fue exitosa. Desarrollar también un
 programa para verificar su comportamiento.
 
+
+'''
+def eliminar_claves(dicc, claves):
+    for i in range(0, len(claves), 1):
+        dicc.pop(claves[i], None)
+    return dicc
+
+dic = {'uno': 1, 'dos': 2, 'tres': 3, 'cuatro': 4}
+lista_claves = ['uno', 'dos']
+print(eliminar_claves(dic, lista_claves))
+
+"""
 15) Escribir una función para eliminar una subcadena de una cadena de
 caracteres, a partir de una posición y cantidad de caracteres dados,
 devolviendo la cadena resultante. Escribir también un programa para verificar
