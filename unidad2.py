@@ -263,8 +263,6 @@ las claves contenidas en la lista, devolviendo el diccionario modificado y un
 valor de verdad que indique si la operación fue exitosa. Desarrollar también un
 programa para verificar su comportamiento.
 
-
-'''
 def eliminar_claves(dicc, claves):
     for i in range(0, len(claves), 1):
         dicc.pop(claves[i], None)
@@ -274,10 +272,25 @@ dic = {'uno': 1, 'dos': 2, 'tres': 3, 'cuatro': 4}
 lista_claves = ['uno', 'dos']
 print(eliminar_claves(dic, lista_claves))
 
-"""
+---
+
 15) Escribir una función para eliminar una subcadena de una cadena de
 caracteres, a partir de una posición y cantidad de caracteres dados,
 devolviendo la cadena resultante. Escribir también un programa para verificar
 el comportamiento de la misma. Escribir una función utilizando rebanadas.
 
-"""
+
+'''
+
+def eliminar_porcion(cad, pos, cant):
+    lista = list(cad)
+    for i in range(pos, pos+cant, 1):
+        lista.pop(pos)
+    return "".join(lista)
+
+
+
+cadena = input('Introduzca una cadena: ')
+posicion = int(input('Introduzca indice desde donde borrar: '))
+cantidad = int(input('Introduzca cantidad de caracteres a borrar: '))
+print(eliminar_porcion(cadena, posicion, cantidad))
